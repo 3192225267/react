@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .title{
+        background-color: orange;
+    }
+</style>
+<body>
+<div id="test"></div>
+</body>
+<!-- 引入依赖 ,引入的时候，必须就按照这个步骤-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+<script src="../React-js/babel.min.js" type="text/javascript"></script>
+
+
+<!--这里使用了babel用来解析jsx语法-->
+<script type="text/babel">
+    const myId = "morningStar"
+    const myData = "Hello React"
+    const VDOM = (
+        <div>
+            <h2 className="title" id={myId.toLocaleLowerCase()}>
+                <span style={{color: 'white', fontSize: '18px'}}>{myData.toLocaleLowerCase()}</span>
+            </h2>
+            <h2 className="title" id={myId.toLocaleLowerCase()}>
+                <span style={{color: 'white', fontSize: '18px'}}>{myData.toLocaleLowerCase()}</span>
+            </h2>
+            <input type="text"/>
+        </div>
+    )
+    React.render(VDOM,document.getElementById("test"))
+
+    // ## jsx语法规则
+    //
+    // 1. 定义虚拟DOM时，不要写引号
+    // 2. 标签中混入JS表达式时要用{}。
+    // 3. 样式的类名指定不要用class，要用className。
+    // 4. 内联样式，要用style={{key:value}} 的形式去写。
+    // 5. jsx内只可以有一个根标签
+    // 6. jsx内的标签必须闭合
+    // 7. 标签首字母匹配着不同的渲染规则
+    //     1. 若小写字母开头，则该标签转换为html中同名元素( <span> -> <span>)，若html中无该标签对应的同名元素，则报错
+    //     2. 若大写字母开头，react会将其渲染/转换为组件，若该组件未定义，则报错。
+</script>
+
+</html>

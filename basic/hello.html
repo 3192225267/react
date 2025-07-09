@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="test"></div>
+</body>
+<!-- 引入依赖 ,引入的时候，必须就按照这个步骤-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+<script src="../React-js/babel.min.js" type="text/javascript"></script>
+
+
+<!--这里使用了babel用来解析jsx语法-->
+<script type="text/babel">
+    const VDOM =<h1>Hello</h1>// 无需加""
+    ReactDOM.render(VDOM,document.getElementById("test"))
+</script>
+
+</html>
