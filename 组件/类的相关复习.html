@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="test"></div>
+</body>
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+<script src="../React-js/babel.min.js" type="text/javascript"></script>
+
+<!-- 这里写了如何遍历集合中的数据到虚拟视图中-->
+<script type="text/babel">
+    class Person {
+        // 类构造器不是必写的
+        // 子类继承父类，子类构造器必须使用super调用父类构造器
+        // 类中所定义的方法，都是放在原型对象上，供实例使用
+        constructor(name, age) {
+            this.name = name
+            this.age = age
+        }
+
+        /**
+         * speak方法放在哪里？——类的原型对象上，供实例使用
+         * 通过Person实例调用speak时，speak中的this就是Person
+         */
+        speak() {
+            console.log(`我是${this.name}，今年${this.age}`)
+        }
+    }
+
+    const p1 = new Person('爪云王子', 23)
+    p1.speak()
+    console.log(p1)
+
+    // 创建Student继承Person
+    class Student extends Person {
+        constructor(name, age, grade) {
+            // 子类必须调用super（指向父类构造器），切构造器必须在构造器第一行
+            super(name, age);
+            this.grade = grade
+        }
+
+        study() {
+            console.log('我爱学习', this.grade)
+        }
+    }
+
+    const s1 = new Student('爪云王子', 23, '高中一年级')
+    s1.study()
+</script>
+
+</html>

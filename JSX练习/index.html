@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="test"></div>
+</body>
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+<script src="../React-js/babel.min.js" type="text/javascript"></script>
+
+<!-- 这里写了如何遍历集合中的数据到虚拟视图中-->
+<script type="text/babel">
+    const list = ['Vue', 'React', 'Angular']
+    const VDOM = (
+        <div>
+            <ul>
+                {
+                    list.map((data, index) => {
+                        return <li key={index}>{data}</li>
+                    })
+                }
+            </ul>
+        </div>
+    )
+    ReactDOM.render(VDOM,document.getElementById('test'))
+</script>
+
+</html>
